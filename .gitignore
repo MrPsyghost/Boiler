@@ -1,0 +1,7 @@
+build.cmd.txt
+boiler.spec
+build
+.vscode
+src/__pycache__
+src/templates
+.venv
