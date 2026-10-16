@@ -1,6 +1,16 @@
+import stat, os
 from loc import TEMPLATES_DIR
 from tqdm.auto import tqdm
 from shutil import rmtree
+
+
+
+def _handle_remove_error_(func, path, exc_info):
+    try:
+        os.chmod(path, stat.S_IWRITE | stat.S_IREAD)
+        func(path)
+    except OSError:
+        raise
 
 
 def _templates_():
@@ -19,7 +29,7 @@ def _remove_all_templates_():
         ufs = []
         for f in tqdm(list(TEMPLATES_DIR.iterdir()), desc='deleting templates'):
             if f.is_dir():
-                rmtree(f)
+                rmtree(f, onerror=_handle_remove_error_)
             if f.is_file():
                 ufs.append(f.name)
         for i in ufs:

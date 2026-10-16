@@ -5,3 +5,5 @@ build
 src/__pycache__
 src/templates
 .venv
+dist/boiler.exe
+dist/boiler.cfg

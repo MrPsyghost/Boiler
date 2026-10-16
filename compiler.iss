@@ -37,6 +37,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
 Source: "C:\Users\shiva\OneDrive\Desktop\Boiler\dist\boiler.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\shiva\OneDrive\Desktop\Boiler\dist\boiler.cfg"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
