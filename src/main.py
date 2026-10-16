@@ -12,7 +12,7 @@ parser = argparse.ArgumentParser(
     epilog='Thanks for using Boiler.',
 )
 
-parser.add_argument('--version', action='store_true', help='shows the installed version of boiler and the latest update version')
+parser.add_argument('-v', '--version', action='store_true', help='shows the installed version of boiler and the latest update version')
 parser.add_argument('action', nargs='?', help='boil/init/set/add/clear/list/remove/path')
 parser.add_argument("paths", nargs="*", help="files or directories to add")
 parser.add_argument('-n', '--name', help=f"name of the template (if not provided, name is set to 'template{len(_templates_())}')")
