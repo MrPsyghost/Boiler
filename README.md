@@ -24,6 +24,7 @@ Boiler helps you create, store, manage, and reuse project templates directly fro
 - **Command-line interface** — Manage everything directly from your terminal.
 - **Configurable appearance** — Customize the banner, colors, and other settings through `boiler.cfg`.
 - **Windows executable** — Run Boiler from your terminal after installation.
+- **UPI donations** — Generate a donation QR code directly in the terminal.
 
 ## Installation
 
@@ -137,7 +138,8 @@ Boiler may ask for confirmation before deleting templates. **Bulk removal is des
 | `boiler clear` | Clear template contents or the currently selected template, depending on the implementation |
 | `boiler list` | List available templates |
 | `boiler remove` | Remove a template or all templates |
-| `boiler path` | Display a relevant Boiler path |
+| `boiler path` | Display a path to where templates exist |
+| `boiler donate [AMOUNT]` | Generate a UPI donation QR code in the terminal |
 | `boiler --help` | Display help information |
 | `boiler --version` | Display version information |
 
@@ -146,7 +148,7 @@ Boiler may ask for confirmation before deleting templates. **Bulk removal is des
 | Option | Description |
 | --- | --- |
 | `-h`, `--help` | Display the help message |
-| `--version` | Display the installed version and the latest available update version, if supported |
+| `--version` | Display version information |
 | `-n NAME`, `--name NAME` | Specify a template name |
 | `-a`, `--all` | Remove all existing templates |
 
@@ -188,6 +190,16 @@ showBanner=true
 
 The configuration file is distributed with the application. User-specific templates and mutable settings should be stored in the user's application data directory rather than in the protected installation directory.
 
+For donations, configure the following settings in `boiler.cfg`:
+
+```ini
+donationUPI=your-upi-id
+donationName=Your Display Name
+donationMessage=Support Boiler
+```
+
+Replace the example values with your own details. Donations are optional, and the QR code contains the payment details needed to initiate a UPI payment.
+
 ## Development
 
 Want to contribute to Boiler or build it from source? Follow the instructions below.
@@ -215,7 +227,7 @@ python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
-Install the required dependencies using the project's dependency file.
+Install the required dependencies using the project's dependency file, including Segno for terminal QR-code generation.
 
 ### Build the executable
 
@@ -238,14 +250,6 @@ Run:
 ```powershell
 make installer
 ```
-
-If your Makefile defines a combined release target, you can build the executable and installer in one go:
-
-```powershell
-make release
-```
-
-The installer's output directory and filename are configured in `compiler.iss`.
 
 ## Project structure
 
@@ -286,6 +290,24 @@ Found a bug or have an idea for a new feature?
 Open an issue on the [Boiler GitHub repository](https://github.com/MrPsyghost/Boiler/issues).
 
 Please include the command you ran, the expected behavior, the actual behavior, and any relevant error messages.
+
+## Supporting Boiler
+
+You can support Boiler with a voluntary UPI donation.
+
+Generate a donation QR code for a specific amount in INR:
+
+```powershell
+boiler donate 50
+```
+
+Or run the command without an amount to enter one interactively:
+
+```powershell
+boiler donate
+```
+
+Scan the QR code using a compatible UPI app to initiate the payment. Boiler does not currently verify whether a payment was completed, so its thank-you message should not be treated as payment confirmation.
 
 ## License
 

@@ -3,7 +3,7 @@ from actions import actions
 from config import _config_
 from templates import _templates_
 from termcolor import cprint
-import boil as boil, remove as remove, add as add, clear as clear, set as set, list_templates as list_templates, path_templates as path_templates, init as init
+import boil, remove, add, clear, set, list_templates, path_templates, init, donate
 
 
 parser = argparse.ArgumentParser(
@@ -17,6 +17,7 @@ parser.add_argument('action', nargs='?', help='boil/init/set/add/clear/list/remo
 parser.add_argument("paths", nargs="*", help="files or directories to add")
 parser.add_argument('-n', '--name', help=f"name of the template (if not provided, name is set to 'template{len(_templates_())}')")
 parser.add_argument('-a', '--all', action='store_true', help='removes all the existing templates.')
+# parser.add_argument('-cu', '--currency', help='set another currency (default is INR).')
 
 args = parser.parse_args()
 

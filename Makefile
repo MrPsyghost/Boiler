@@ -26,6 +26,7 @@ build:
 		--icon src/boiler.ico \
 		--add-data "src/boiler.cfg;." \
 		--collect-all pyfiglet \
+		--collect-all segno \
 		src/main.py
 
 cfg:

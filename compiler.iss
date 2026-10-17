@@ -1,5 +1,5 @@
 #define MyAppName "Boiler"
-#define MyAppVersion "0.0.1"
+#define MyAppVersion "0.0.2"
 #define MyAppPublisher "MrPsyghost"
 #define MyAppURL "https://mrpsyghost.onrender.com/"
 #define MyAppExeName "boiler.exe"
@@ -26,7 +26,7 @@ ChangesEnvironment=yes
 
 AllowNoIcons=yes
 OutputDir=C:\Users\shiva\OneDrive\Desktop\Boiler\dist
-OutputBaseFilename=boiler-setup-v0.0.1-beta
+OutputBaseFilename=boiler-setup-v0.0.2-beta
 SetupIconFile=C:\Users\shiva\OneDrive\Desktop\Boiler\src\boiler.ico
 
 SolidCompression=yes
